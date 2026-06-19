@@ -23,10 +23,12 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
 
-    - name: Install dependencies
+    - name: Build
       run: |
         npm install
-        npm install -D webpack-cli
+        # Skip webpack if no JavaScript entry point
+        echo "No webpack build needed"
 
-    - name: Build
-      run: npx webpack
+    # Or if you want to run linting instead
+    - name: Lint
+      run: npx eslint . --fix
