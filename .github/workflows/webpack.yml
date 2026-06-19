@@ -37,7 +37,7 @@ jobs:
         fi
 
     - name: Build
-      run: npx webpack --config webpack.config.js
+      run: npx webpack --entry ./src/main.tsx --mode production
 
     - name: Upload build artifacts (optional)
       uses: actions/upload-artifact@v4
